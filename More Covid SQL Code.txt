@@ -1,0 +1,26 @@
+-- Query 1: Select all columns from the Customers table where Country is 'USA' and City is 'New York'
+SELECT *
+FROM Customers
+WHERE Country = 'USA' AND City = 'New York';
+
+-- Query 2: Select ProductName and UnitPrice from the Products table where CategoryId is 1 and UnitPrice is greater than 10
+SELECT ProductName, UnitPrice
+FROM Products
+WHERE CategoryId = 1 AND UnitPrice > 10;
+
+-- Query 3: Select CategoryName and count of distinct ProductId from the Categories and Products tables, grouped by CategoryId
+SELECT c.CategoryName, COUNT(DISTINCT p.ProductId)
+FROM Categories c
+LEFT JOIN Products p ON c.CategoryId = p.CategoryId
+GROUP BY c.CategoryId;
+
+-- Query 4: Select EmployeeId, FirstName, LastName, and count of orders from the Employees and Orders tables, grouped by EmployeeId
+SELECT e.EmployeeId, e.FirstName, e.LastName, COUNT(o.OrderId)
+FROM Employees e
+LEFT JOIN Orders o ON e.EmployeeId = o.EmployeeId
+GROUP BY e.EmployeeId;
+
+-- Query 5: Select all columns from the OrderDetails table where the UnitPrice is greater than 50 and the Quantity is greater than 10
+SELECT *
+FROM OrderDetails
+WHERE UnitPrice > 50 AND Quantity > 10;
